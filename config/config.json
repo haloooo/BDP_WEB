@@ -1,0 +1,34 @@
+{
+  "BDP":[
+    {
+      "MODEL": "QW",
+      "LIST": [
+        {"CASE":"testcase_Basic_Check_Setup_0001","RUN_COUNT":0,"ACTION":"N"},
+        {"CASE":"testcase_Basic_Check_Setup_SKB_0001","RUN_COUNT":0,"ACTION":"N"},
+        {"CASE":"testcase_Basic_Check_Setup_WiredWireless_0001","RUN_COUNT":0,"ACTION":"N"},
+        {"CASE":"testcase_Basic_Check_Setup_WiredWireless_0002","RUN_COUNT":0,"ACTION":"N"},
+        {"CASE":"testcase_Basic_Check_for_System_Team_0001","RUN_COUNT":0,"ACTION":"N"},
+        {"CASE":"testcase_Basic_Check_for_System_Team_0002","RUN_COUNT":0,"ACTION":"N"},
+        {"CASE":"testcase_Basic_Check_for_System_Team_0003","RUN_COUNT":0,"ACTION":"N"},
+        {"CASE":"testcase_ContentList_BasicCheck_0001","RUN_COUNT":0,"ACTION":"N"},
+        {"CASE":"testcase_HomeUI_BasicCheck_0001","RUN_COUNT":0,"ACTION":"N"},
+        {"CASE":"testcase_HomeUI_BasicCheck_0002","RUN_COUNT":0,"ACTION":"N"}
+      ]
+    },
+    {
+      "MODEL": "JP",
+      "LIST": [
+        {"CASE":"testcase_Basic_Check_Setup_0001","RUN_COUNT":0,"ACTION":"N"},
+        {"CASE":"testcase_Basic_Check_Setup_SKB_0001","RUN_COUNT":0,"ACTION":"N"},
+        {"CASE":"testcase_Basic_Check_Setup_WiredWireless_0001","RUN_COUNT":0,"ACTION":"N"},
+        {"CASE":"testcase_Basic_Check_Setup_WiredWireless_0002","RUN_COUNT":0,"ACTION":"N"},
+        {"CASE":"testcase_Basic_Check_for_System_Team_0001","RUN_COUNT":0,"ACTION":"N"},
+        {"CASE":"testcase_Basic_Check_for_System_Team_0002","RUN_COUNT":0,"ACTION":"N"},
+        {"CASE":"testcase_Basic_Check_for_System_Team_0003","RUN_COUNT":0,"ACTION":"N"},
+        {"CASE":"testcase_ContentList_BasicCheck_0001","RUN_COUNT":0,"ACTION":"N"},
+        {"CASE":"testcase_HomeUI_BasicCheck_0001","RUN_COUNT":0,"ACTION":"N"},
+        {"CASE":"testcase_HomeUI_BasicCheck_0002","RUN_COUNT":0,"ACTION":"N"}
+      ]
+    }
+  ]
+}

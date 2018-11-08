@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HomePage</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="../static/sources/css/bootstrap/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../static/sources/css/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="../static/sources/css/Ionicons/ionicons.min.css">
+    <!-- basictable -->
+    <link rel="stylesheet" href="../static/sources/css/basictable/basictable.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../static/sources/css/dist/AdminLTE.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../static/sources/css/dist/_all-skins.css">
+    <!-- toastr -->
+    <link rel="stylesheet" href="../static/sources/css/toastr/toastr.css">
+    <!-- JQUERY Page -->
+    <link rel="stylesheet" href="../static/sources/css/JqueryPage/jquery.page.css">
+    <!-- style -->
+    <link rel="stylesheet" href="../static/sources/css/basictable/style.css">
+    <style>
+        .header_height{
+            height: 50px;
+            background-color: #3C8DBC;
+        }
+        .text-color{
+            color: #FFFFFF;
+        }
+        .text-location{
+            padding-top: 6px;
+        }
+        #btn{
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+            border: none
+        }
+        @keyframes twinkle_red{
+            from{background: #EE9572;}
+            to{background: #EE3B3B;}
+        }
+        @keyframes twinkle_yellow{
+            from{background: #FFFF00;}
+            to{background: #EE7600;}
+        }
+        @keyframes twinkle_green{
+            from{background: #32CD32;}
+            to{background: #228B22;}
+        }
+
+        @-webkit-keyframes twinkling{
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        td{
+            border: 1px solid black;
+        }
+
+        th{
+            border: 1px solid black;
+        }
+
+        tr {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" ng-app="AppHomePage">
+{% verbatim %}
+<div class="wrapper">
+    <header class="main-header">
+        <!-- Logo -->
+        <div class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini">TECHNOPRO</span>
+            <!-- logo for regular state and mobile devices -->
+            <img src="../static/sources/images/logo.png">
+        </div>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top">
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div align="center" style="vertical-align: center">
+                <span style="font-size: 30px;color: #ffffff">BDP SMOKING SYSTEM</span>
+            </div>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="active" style="cursor: pointer"><a data-toggle="modal" data-target="#myModal" data-toggle="control-sidebar"><i class="fa fa-bookmark"></i><span>Config Model</span></a></li>
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
+            <!-- Small boxes (Stat box) -->
+            <div class="btn-group">
+                <button type="button" id="run" style="width: 80px" class="btn btn-primary" ng-click="run()">RUN</button>
+                <input type="button" id="pause" style="width: 80px" disabled="disabled" class="btn btn-primary" ng-click="pause_()" value="PAUSE">
+                <button type="button" id="stop" style="width: 80px" disabled="disabled" class="btn btn-primary" ng-click="stop_()">STOP</button>
+                <button type="button" id="output" style="width: 80px" disabled="disabled" class="btn btn-primary" ng-click="output_()">OUTPUT</button>
+            </div>
+
+            <div>
+                <table id="table">
+                    <thead>
+                    <tr>
+                        <th class="col-lg-3" style="text-align: center">MODEL</th>
+                        <th class="col-lg-3" style="text-align: center">CASE</th>
+                        <th class="col-lg-3" style="text-align: center">RUN COUNT</th>
+                        <th class="col-lg-3" style="text-align: center">ACTION</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in caselist.LIST">
+                        <td class="col-lg-3" style="text-align: center">{{ caselist.MODEL }}</td>
+                        <td class="col-lg-3" style="text-align: left">{{ item.CASE }}</td>
+                        <td class="col-lg-3" >
+
+                            <input class="form-control" ng-model="item.RUN_COUNT" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}">
+                        </td>
+                        <td class="col-lg-3" style="text-align: center"><input type="checkbox" id="{{ $index }}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--log-->
+            <div>
+                <span>RealTime Log</span>
+            </div>
+            <div  id="messagecontainer" style="width: 100%;height: 450px;overflow: scroll;background-color: #b5bbc8"></div>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header header_height">
+                            <button type="button" class="close text-color" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel"><span class="text-color">Config</span></h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                </div>
+                                <div class="col-sm-2 text-location">
+                                    <span>Model</span>
+                                </div>
+                                <div class="col-sm-5" style="padding-top: 4px">
+                                    <select class="form-control input-sm" ng-model="selectedModel" ng-change="modelChange()"  ng-options="item for item in datalist">
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" ng-click="do_homePage()">OK</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+</div>
+{% endverbatim %}
+<!-- ./wrapper -->
+<!-- jQuery 3 -->
+<script src="../static/sources/js/jquery.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="../static/sources/js/bootstrap.js"></script>
+<!-- AdminLTE App -->
+<script src="../static/sources/js/adminlte.js"></script>
+<!-- Bootstarp table -->
+<script src="../static/sources/js/bootstrap-table.js"></script>
+<!-- AngularJS -->
+<script src="../static/sources/js/angular.js"></script>
+<!-- Toastr -->
+<script src="../static/sources/js/toastr.js"></script>
+<!-- BasicTable -->
+<script src="../static/sources/js/jquery.basictable.js"></script>
+<!-- JQUERY Page -->
+<script src="../static/sources/js/jquery.page.js"></script>
+<!-- homePage.js -->
+<script src="../static/js/homePage.js"></script>
+<script type="text/javascript">
+    toastr.options.positionClass = 'toast-top-center';
+</script>
+</body>
+</html>

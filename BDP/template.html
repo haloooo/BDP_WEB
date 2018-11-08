@@ -1,0 +1,103 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<style>
+body {
+	background-color: white;
+	padding:20px 20px 20px 20px;
+}
+th {
+color:black;
+}
+h2 {
+	color:black;
+}
+h5 {
+	color:black;
+	font-size:12px;
+}
+li {
+	color:black;
+	font-size:12px;
+}
+table
+{
+    border-collapse: collapse;
+    border: none;
+    width: 200px;
+}
+th
+{
+    border: solid #000 1px;
+}
+td
+{
+    border: solid #000 1px;
+}
+</style>
+<body >
+	<div class="row">
+		<div id="title" class="box col-md-12" style="text-align:center;">
+			<h2>Test Report of BDP</h2>
+		</div>
+			<div>
+            <div>
+                        <table>
+	            	
+			<tr>
+	            		<th><b>Number(Mode):</b></th><th><b style="color:blue">bdpnummode<br/></th>
+			</tr>
+                        <tr>
+	            		<th ><b>Firmware:</b></th><th><b style="color:blue">bdpfirmware<br/></th>
+			</tr>
+                        <tr>
+	            		<th><b>Datetime:</b></th><th><b style="color:blue">bdptime<br/></th>
+			</tr>
+			<tr>
+	            		<th><b>Total:</b></th><th><b style="color:blue">bdptotal<br/></th>
+			</tr>
+			<tr>
+	            		<th><b>Success:</b></th><th><b style="color:green">bdpsuccess</b><br/></th>
+			</tr>
+			<tr>
+	            		<th><b>Fail:</b></th><th><b style="color:red">bdpfailed</b><br/></th> 
+			</tr>
+			<tr>
+	            		<th><b>Block:</b></th><th><b  style="color:yello">bdpblocked</b><br/></th>
+			</tr>
+			</table>
+			</div>
+			<div style="text-align:center;">
+				<iframe src="Chartsrc" frameborder="no" border="0" width="400" height="300" scrolling="no"></iframe>
+			</div>
+		</div>
+	    <div class="box col-md-12">
+	        <div class="box-inner ">
+	            <div class="box-header well">
+	                <h3>Fail Information</h3>
+	            </div>
+	            <div class="box-content">
+	            	<table style="width:100%;">
+	            	<tr style="background:#06ffff">
+	            		<th style="width:30%">Test Case</th><th style="width:20%">Fail_Message</th><th style="width:50%">Log</th>
+	            	</tr>
+                    faillist
+					</table>
+	            </div>
+		    <div class="box-header well">
+	                <h3>Block Information</h3>
+	            </div>
+	            <div class="box-content">
+	            	<table style="width:100%;">
+	            	<tr style="background:#C66fff">
+	            		<th style="width:30%">Test Case</th><th style="width:20%">Block_Message</th><th style="width:50%">Log</th>
+	            	</tr>
+                       blockllist  
+					</table>
+	            </div>
+	        </div>
+	    </div>
+</body>
+</html>
